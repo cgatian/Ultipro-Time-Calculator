@@ -1,20 +1,26 @@
+window.ultiProTimeClock = window.ultiProTimeClock || 
 (function (window, document, undefined) {
     var host = 'https://utliprotimeclock.azurewebsites.net/';
 
     $(document).ready(function () {
-        $(document.body).load(host + "popup.html", function () {
+        var tempElement = document.createElement('div');
+        document.body.appendChild(tempElement);
+        $(tempElement).load(host + "popup.html", function () {
 
             var popup = $('#time-popup');
             var totalTime = $('#total-time');
-
+            var i = 1;
             setInterval(function () {
+                i++;
                 var time = getTime();
+                time.minutes += i;
                 var paddedMinutes = time.minutes < 10 ? ("0" + time.minutes) : time.minutes;
-                totalTime.html("Time: " + time.hours + ':' + paddedMinutes);
+                var timeString = time.hours + ':' + paddedMinutes;
+                totalTime.html("Time: " + timeString );
+                document.title = timeString;
             }, 1000);
         });       
     });
- 
 
     var getTime = (function () {
 
@@ -55,15 +61,10 @@
         hours += Math.floor(minutes / 60);
         minutes = (minutes % 60);
 
-        //if (minutes < 10) {
-        //    minutes = "0" + minutes.toString();
-        //}
-
         return {
             hours: hours,
             minutes: minutes
         };
-
-        //alert('Total Time: ' + hours + ':' + minutes);
     });
+    return this;
 }(window, document));
