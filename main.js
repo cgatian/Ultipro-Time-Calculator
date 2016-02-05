@@ -1,25 +1,27 @@
 window.ultiProTimeClock = window.ultiProTimeClock || 
 (function (window, document, undefined) {
     var host = 'https://utliprotimeclock.azurewebsites.net/';
+    var popup = null;
+    var timeLabel = null;
 
     $(document).ready(function () {
         var tempElement = document.createElement('div');
         document.body.appendChild(tempElement);
         $(tempElement).load(host + "popup.html", function () {
+            popup = $('#time-popup');
+            timeLabel = $('#time-label');
+            updateTime();
+            setInterval(updateTime, 1000);
+        });
 
-            var popup = $('#time-popup');
-            var timeLabel = $('#time-label');
-            var i = 1;
-            setInterval(function () {
-                i++;
-                var time = getTime();
-                time.minutes += i;
-                var paddedMinutes = time.minutes < 10 ? ("0" + time.minutes) : time.minutes;
-                var timeString = time.hours + ':' + paddedMinutes;
-                timeLabel.html(timeString);
-                document.title = timeString;
-            }, 1000);
-        });       
+        function updateTime() {
+            var time = getTime();
+            time.minutes += i;
+            var paddedMinutes = time.minutes < 10 ? ("0" + time.minutes) : time.minutes;
+            var timeString = time.hours + ':' + paddedMinutes;
+            timeLabel.html(timeString);
+            document.title = timeString;
+        }
     });
 
     var getTime = (function () {
