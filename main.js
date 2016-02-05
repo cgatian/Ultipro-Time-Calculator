@@ -1,6 +1,6 @@
-window.ultiProTimeClock = window.ultiProTimeClock || 
+window.ultiProTimeCalculator = window.ultiProTimeCalculator ||
 (function (window, document, undefined) {
-    var host = 'https://utliprotimeclock.azurewebsites.net/';
+    var host = 'https://ultiprotimecalculator.azurewebsites.net/';
     var popup = null;
     var timeLabel = null;
 
