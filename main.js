@@ -16,7 +16,7 @@ window.ultiProTimeClock = window.ultiProTimeClock ||
                 time.minutes += i;
                 var paddedMinutes = time.minutes < 10 ? ("0" + time.minutes) : time.minutes;
                 var timeString = time.hours + ':' + paddedMinutes;
-                timeLabel.html("Time: " + timeString);
+                timeLabel.html(timeString);
                 document.title = timeString;
             }, 1000);
         });       
