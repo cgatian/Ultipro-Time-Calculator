@@ -16,7 +16,6 @@ window.ultiProTimeClock = window.ultiProTimeClock ||
 
         function updateTime() {
             var time = getTime();
-            time.minutes += i;
             var paddedMinutes = time.minutes < 10 ? ("0" + time.minutes) : time.minutes;
             var timeString = time.hours + ':' + paddedMinutes;
             timeLabel.html(timeString);
