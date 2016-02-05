@@ -8,7 +8,7 @@ window.ultiProTimeClock = window.ultiProTimeClock ||
         $(tempElement).load(host + "popup.html", function () {
 
             var popup = $('#time-popup');
-            var totalTime = $('#total-time');
+            var timeLabel = $('#time-label');
             var i = 1;
             setInterval(function () {
                 i++;
@@ -16,7 +16,7 @@ window.ultiProTimeClock = window.ultiProTimeClock ||
                 time.minutes += i;
                 var paddedMinutes = time.minutes < 10 ? ("0" + time.minutes) : time.minutes;
                 var timeString = time.hours + ':' + paddedMinutes;
-                totalTime.html("Time: " + timeString );
+                timeLabel.html("Time: " + timeString);
                 document.title = timeString;
             }, 1000);
         });       
