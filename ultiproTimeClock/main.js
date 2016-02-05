@@ -1,4 +1,9 @@
+
+var host = 'https://utliprotimeclock.azurewebsites.net/';
+
 var startTime = (function () {
+
+    loadHtml();
     var $t = document.getElementById('contentFrame').contentWindow.$;
     var workcells = $t('.workDetailBlock').find('td > input[value="WRK"][type="text"]');
     var lunchCells = $t('.workDetailBlock').find('td > input[value="LNCHP"][type="text"]');
@@ -42,3 +47,13 @@ var startTime = (function () {
     
     alert('Total Time: ' + hours + ':' + minutes);
 });
+
+var loadHtml = function () {
+    $(document).ready(function () {
+        var container = document.createElement('div');
+        container.id = 'content';
+        document.body.appendChild(container);
+
+        $("#content").load(host + "popup.html");
+    });
+}
