@@ -11,7 +11,7 @@ window.ultiProTimeCalculator = window.ultiProTimeCalculator ||
             popup = $('#time-popup');
             timeLabel = $('#time-label');
             updateTime();
-            setInterval(updateTime, 1000);
+            //setInterval(updateTime, 1000);
         });
 
         function updateTime() {
@@ -41,6 +41,8 @@ window.ultiProTimeCalculator = window.ultiProTimeCalculator ||
             hours += +parseInt(time[0]);
             minutes += parseInt(time[1]);
         });
+        
+        alert(hours + ' ' + minutes);
 
         var lastClock = $t('.tsclocksui-on').last();
         var lastClockTD = lastClock.parent();
