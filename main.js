@@ -28,7 +28,8 @@ window.ultiProTimeCalculator = window.ultiProTimeCalculator ||
         var $t = document.getElementById('contentFrame').contentWindow.$;
         var workcells = $t('.workDetailBlock').find('td > input[value="WRK"][type="text"]');
         var lunchCells = $t('.workDetailBlock').find('td > input[value="LNCHP"][type="text"]');
-        var combined = workcells.add(lunchCells);
+        var breakPaid = $t('.workDetailBlock').find('td > input[value="BRKP"][type="text"]');
+        var combined = workcells.add(lunchCells).add(breakPaid);
         var allRows = $t('.workDetailBlock tr');
 
         var filteredRows = allRows.has(combined);
