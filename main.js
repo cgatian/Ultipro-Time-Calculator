@@ -4,25 +4,6 @@ window.ultiProTimeCalculator = window.ultiProTimeCalculator ||
     var popup = null;
     var timeLabel = null;
 
-    $(document).ready(function () {
-        var tempElement = document.createElement('div');
-        document.body.appendChild(tempElement);
-        $(tempElement).load(host + "popup.html", function () {
-            popup = $('#time-popup');
-            timeLabel = $('#time-label');
-            updateTime();
-            setInterval(updateTime, 1000);
-        });
-
-        function updateTime() {
-            var time = getTime();
-            var paddedMinutes = time.minutes < 10 ? ("0" + time.minutes) : time.minutes;
-            var timeString = time.hours + ':' + paddedMinutes;
-            timeLabel.html(timeString);
-            document.title = timeString;
-        }
-    });
-
     var getTime = (function () {
 
         var $t = document.getElementById('contentFrame').contentWindow.$;
@@ -68,5 +49,25 @@ window.ultiProTimeCalculator = window.ultiProTimeCalculator ||
             minutes: minutes
         };
     });
+    
+       $(document).ready(function () {
+        var tempElement = document.createElement('div');
+        document.body.appendChild(tempElement);
+        $(tempElement).load(host + "popup.html", function () {
+            popup = $('#time-popup');
+            timeLabel = $('#time-label');
+            updateTime();
+            setInterval(updateTime, 1000);
+        });
+
+        function updateTime() {
+            var time = getTime();
+            var paddedMinutes = time.minutes < 10 ? ("0" + time.minutes) : time.minutes;
+            var timeString = time.hours + ':' + paddedMinutes;
+            timeLabel.html(timeString);
+            document.title = timeString;
+        }
+    });
+    
     return this;
 }(window, document));
