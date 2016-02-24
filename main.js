@@ -49,7 +49,7 @@ window.ultiProTimeCalculator = window.ultiProTimeCalculator ||
             var lastClockTime = lastClock.find('input').first().val();
             var matches = re.exec(lastClockTime);
             var now = new Date();
-            var lastClockDateTime = new Date(now.getFullYear(), now.getMonth(), now.getDay(), matches[1], matches[2], matches[3]);
+            var lastClockDateTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), matches[1], matches[2], matches[3]);
             var diff = now - lastClockDateTime;
 
             var hour_diff = Math.floor(diff / 1000 / 60 / 60);
